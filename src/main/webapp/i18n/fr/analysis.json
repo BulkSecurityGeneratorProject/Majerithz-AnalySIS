@@ -1,0 +1,27 @@
+
+{
+    "majerithzAnalySisApp": {
+        "analysis" : {
+            "home": {
+                "title": "Analyses",
+                "createLabel": "Créer un nouveau Analysis",
+                "createOrEditLabel": "Créer ou éditer un Analysis"
+            },
+            "created": "Un nouveau Analysis a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Analysis avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Analysis avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Analysis {{ id }} ?"
+            },
+            "detail": {
+                "title": "Analysis"
+            },
+            "identifier": "Identifier",
+            "analysisCreationDate": "Analysis Creation Date",
+            "analysisLastEdit": "Analysis Last Edit",
+            "step": "Step",
+            "asset": "Asset",
+            "company": "Company"
+        }
+    }
+}

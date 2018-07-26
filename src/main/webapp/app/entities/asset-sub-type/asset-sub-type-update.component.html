@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-asset-sub-type-heading" jhiTranslate="majerithzAnalySisApp.assetSubType.home.createOrEditLabel">Create or edit a Asset Sub Type</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!assetSubType.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="assetSubType.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.assetSubType.assetTypeCode" for="field_assetTypeCode">Asset Type Code</label>
+                    <select class="form-control" name="assetTypeCode" [(ngModel)]="assetSubType.assetTypeCode" id="field_assetTypeCode" >
+                        <option value="ESSENTIAL">{{'majerithzAnalySisApp.AssetsTypeCode.ESSENTIAL' | translate}}</option>
+                        <option value="ARCH">{{'majerithzAnalySisApp.AssetsTypeCode.ARCH' | translate}}</option>
+                        <option value="D">{{'majerithzAnalySisApp.AssetsTypeCode.D' | translate}}</option>
+                        <option value="K">{{'majerithzAnalySisApp.AssetsTypeCode.K' | translate}}</option>
+                        <option value="S">{{'majerithzAnalySisApp.AssetsTypeCode.S' | translate}}</option>
+                        <option value="SW">{{'majerithzAnalySisApp.AssetsTypeCode.SW' | translate}}</option>
+                        <option value="HW">{{'majerithzAnalySisApp.AssetsTypeCode.HW' | translate}}</option>
+                        <option value="COM">{{'majerithzAnalySisApp.AssetsTypeCode.COM' | translate}}</option>
+                        <option value="MEDIA">{{'majerithzAnalySisApp.AssetsTypeCode.MEDIA' | translate}}</option>
+                        <option value="AUX">{{'majerithzAnalySisApp.AssetsTypeCode.AUX' | translate}}</option>
+                        <option value="L">{{'majerithzAnalySisApp.AssetsTypeCode.L' | translate}}</option>
+                        <option value="P">{{'majerithzAnalySisApp.AssetsTypeCode.P' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeCode" for="field_assetSubTypeCode">Asset Sub Type Code</label>
+                    <input type="text" class="form-control" name="assetSubTypeCode" id="field_assetSubTypeCode"
+                        [(ngModel)]="assetSubType.assetSubTypeCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeName" for="field_assetSubTypeName">Asset Sub Type Name</label>
+                    <input type="text" class="form-control" name="assetSubTypeName" id="field_assetSubTypeName"
+                        [(ngModel)]="assetSubType.assetSubTypeName" required/>
+                    <div [hidden]="!(editForm.controls.assetSubTypeName?.dirty && editForm.controls.assetSubTypeName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.assetSubTypeName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeDescription" for="field_assetSubTypeDescription">Asset Sub Type Description</label>
+                    <input type="text" class="form-control" name="assetSubTypeDescription" id="field_assetSubTypeDescription"
+                        [(ngModel)]="assetSubType.assetSubTypeDescription" maxlength="5000"/>
+                    <div [hidden]="!(editForm.controls.assetSubTypeDescription?.dirty && editForm.controls.assetSubTypeDescription?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.assetSubTypeDescription?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5000 }">
+                        This field cannot be longer than 5000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.assetSubType.asset" for="field_asset">Asset</label>
+                    <select class="form-control" id="field_asset" name="asset" [(ngModel)]="assetSubType.asset" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="assetOption.id === assetSubType.asset?.id ? assetSubType.asset : assetOption" *ngFor="let assetOption of assets; trackBy: trackAssetById">{{assetOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.assetSubType.assetType" for="field_assetType">Asset Type</label>
+                    <select class="form-control" id="field_assetType" name="assetType" [(ngModel)]="assetSubType.assetType"  required>
+                        <option *ngIf="!editForm.value.assetType" [ngValue]="null" selected></option>
+                        <option [ngValue]="assetTypeOption.id === assetSubType.assetType?.id ? assetSubType.assetType : assetTypeOption" *ngFor="let assetTypeOption of assettypes; trackBy: trackAssetTypeById">{{assetTypeOption.assetTypeName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.assetType?.dirty && editForm.controls.assetType?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.assetType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

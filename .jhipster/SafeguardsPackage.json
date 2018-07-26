@@ -1,0 +1,60 @@
+{
+    "name": "SafeguardsPackage",
+    "fields": [
+        {
+            "fieldName": "safeguardsPackageName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "safeguardsPackageCommentary",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "effectivenessAgainstDegradation",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 100
+        },
+        {
+            "fieldName": "effectivenessAgainstLikelihood",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "asset",
+            "otherEntityName": "asset",
+            "otherEntityField": "assetName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "safeguard",
+            "otherEntityName": "safeguard",
+            "otherEntityField": "safeguardName"
+        }
+    ],
+    "changelogDate": "20180726112311",
+    "entityTableName": "safeguards_package",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

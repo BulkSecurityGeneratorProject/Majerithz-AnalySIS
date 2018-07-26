@@ -1,0 +1,11 @@
+{
+    "majerithzAnalySisApp": {
+        "ThreatsTypeCode" : {
+            "null": "",
+            "N": "N",
+            "I": "I",
+            "E": "E",
+            "A": "A"
+        }
+    }
+}

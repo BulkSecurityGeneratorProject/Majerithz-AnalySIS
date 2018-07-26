@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-employee-heading" jhiTranslate="majerithzAnalySisApp.employee.home.createOrEditLabel">Create or edit a Employee</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!employee.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="employee.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="employee.firstName" required/>
+                    <div [hidden]="!(editForm.controls.firstName?.dirty && editForm.controls.firstName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.firstName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="employee.lastName" required/>
+                    <div [hidden]="!(editForm.controls.lastName?.dirty && editForm.controls.lastName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.lastName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.dni" for="field_dni">Dni</label>
+                    <input type="text" class="form-control" name="dni" id="field_dni"
+                        [(ngModel)]="employee.dni" required/>
+                    <div [hidden]="!(editForm.controls.dni?.dirty && editForm.controls.dni?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dni?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="employee.email" required/>
+                    <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                        [(ngModel)]="employee.phoneNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.birthday" for="field_birthday">Birthday</label>
+                    <div class="input-group">
+                        <input id="field_birthday" type="text" class="form-control" name="birthday" ngbDatepicker  #birthdayDp="ngbDatepicker" [(ngModel)]="employee.birthday"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="birthdayDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.hireDate" for="field_hireDate">Hire Date</label>
+                    <div class="input-group">
+                        <input id="field_hireDate" type="text" class="form-control" name="hireDate" ngbDatepicker  #hireDateDp="ngbDatepicker" [(ngModel)]="employee.hireDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="hireDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.job" for="field_job">Job</label>
+                    <input type="text" class="form-control" name="job" id="field_job"
+                        [(ngModel)]="employee.job" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.task" for="field_task">Task</label>
+                    <input type="text" class="form-control" name="task" id="field_task"
+                        [(ngModel)]="employee.task" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.employee.company" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" name="company" [(ngModel)]="employee.company"  required>
+                        <option *ngIf="!editForm.value.company" [ngValue]="null" selected></option>
+                        <option [ngValue]="companyOption.id === employee.company?.id ? employee.company : companyOption" *ngFor="let companyOption of companies; trackBy: trackCompanyById">{{companyOption.companyName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.company?.dirty && editForm.controls.company?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.company?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

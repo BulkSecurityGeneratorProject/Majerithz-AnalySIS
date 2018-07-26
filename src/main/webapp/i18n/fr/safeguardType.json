@@ -1,0 +1,25 @@
+
+{
+    "majerithzAnalySisApp": {
+        "safeguardType" : {
+            "home": {
+                "title": "SafeguardTypes",
+                "createLabel": "Créer un nouveau Safeguard Type",
+                "createOrEditLabel": "Créer ou éditer un Safeguard Type"
+            },
+            "created": "Un nouveau Safeguard Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Safeguard Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Safeguard Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Safeguard Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Safeguard Type"
+            },
+            "safeguardsTypeCode": "Safeguards Type Code",
+            "safeguardTypeName": "Safeguard Type Name",
+            "safeguardTypeDescription": "Safeguard Type Description",
+            "safeguardSubType": "Safeguard Sub Type"
+        }
+    }
+}

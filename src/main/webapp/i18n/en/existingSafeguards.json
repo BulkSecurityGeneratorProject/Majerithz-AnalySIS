@@ -1,0 +1,27 @@
+
+{
+    "majerithzAnalySisApp": {
+        "existingSafeguards" : {
+            "home": {
+                "title": "Existing Safeguards",
+                "createLabel": "Create a new Existing Safeguards",
+                "createOrEditLabel": "Create or edit a Existing Safeguards"
+            },
+            "created": "A new Existing Safeguards is created with identifier {{ param }}",
+            "updated": "A Existing Safeguards is updated with identifier {{ param }}",
+            "deleted": "A Existing Safeguards is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Existing Safeguards {{ id }}?"
+            },
+            "detail": {
+                "title": "Existing Safeguards"
+            },
+            "existingSafeguardsName": "Existing Safeguards Name",
+            "existingSafeguardsCommentary": "Existing Safeguards Commentary",
+            "effectivenessAgainstDegradation": "Effectiveness Against Degradation",
+            "effectivenessAgainstLikelihood": "Effectiveness Against Likelihood",
+            "asset": "Asset",
+            "safeguard": "Safeguard"
+        }
+    }
+}

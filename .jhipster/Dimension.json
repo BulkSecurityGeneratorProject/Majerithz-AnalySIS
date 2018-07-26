@@ -1,0 +1,39 @@
+{
+    "name": "Dimension",
+    "fields": [
+        {
+            "fieldName": "dimensionTypeCode",
+            "fieldType": "DimensionsTypeCode",
+            "fieldValues": "D,I,C,A,T"
+        },
+        {
+            "fieldName": "dimensionDimension",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dimensionDescription",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "asset",
+            "otherEntityName": "asset",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180726112303",
+    "entityTableName": "dimension",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

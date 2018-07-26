@@ -1,0 +1,187 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-asset-heading" jhiTranslate="majerithzAnalySisApp.asset.home.createOrEditLabel">Create or edit a Asset</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!asset.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="asset.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.assetTypeCode" for="field_assetTypeCode">Asset Type Code</label>
+                    <select class="form-control" name="assetTypeCode" [(ngModel)]="asset.assetTypeCode" id="field_assetTypeCode" >
+                        <option value="ESSENTIAL">{{'majerithzAnalySisApp.AssetsTypeCode.ESSENTIAL' | translate}}</option>
+                        <option value="ARCH">{{'majerithzAnalySisApp.AssetsTypeCode.ARCH' | translate}}</option>
+                        <option value="D">{{'majerithzAnalySisApp.AssetsTypeCode.D' | translate}}</option>
+                        <option value="K">{{'majerithzAnalySisApp.AssetsTypeCode.K' | translate}}</option>
+                        <option value="S">{{'majerithzAnalySisApp.AssetsTypeCode.S' | translate}}</option>
+                        <option value="SW">{{'majerithzAnalySisApp.AssetsTypeCode.SW' | translate}}</option>
+                        <option value="HW">{{'majerithzAnalySisApp.AssetsTypeCode.HW' | translate}}</option>
+                        <option value="COM">{{'majerithzAnalySisApp.AssetsTypeCode.COM' | translate}}</option>
+                        <option value="MEDIA">{{'majerithzAnalySisApp.AssetsTypeCode.MEDIA' | translate}}</option>
+                        <option value="AUX">{{'majerithzAnalySisApp.AssetsTypeCode.AUX' | translate}}</option>
+                        <option value="L">{{'majerithzAnalySisApp.AssetsTypeCode.L' | translate}}</option>
+                        <option value="P">{{'majerithzAnalySisApp.AssetsTypeCode.P' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.assetName" for="field_assetName">Asset Name</label>
+                    <input type="text" class="form-control" name="assetName" id="field_assetName"
+                        [(ngModel)]="asset.assetName" required/>
+                    <div [hidden]="!(editForm.controls.assetName?.dirty && editForm.controls.assetName?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.assetName?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.descriptionAsset" for="field_descriptionAsset">Description Asset</label>
+                    <input type="text" class="form-control" name="descriptionAsset" id="field_descriptionAsset"
+                        [(ngModel)]="asset.descriptionAsset" maxlength="5000"/>
+                    <div [hidden]="!(editForm.controls.descriptionAsset?.dirty && editForm.controls.descriptionAsset?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.descriptionAsset?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5000 }">
+                        This field cannot be longer than 5000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.identifier" for="field_identifier">Identifier</label>
+                    <input type="text" class="form-control" name="identifier" id="field_identifier"
+                        [(ngModel)]="asset.identifier" required/>
+                    <div [hidden]="!(editForm.controls.identifier?.dirty && editForm.controls.identifier?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.identifier?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.assetLocation" for="field_assetLocation">Asset Location</label>
+                    <input type="text" class="form-control" name="assetLocation" id="field_assetLocation"
+                        [(ngModel)]="asset.assetLocation" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.owner" for="field_owner">Owner</label>
+                    <input type="text" class="form-control" name="owner" id="field_owner"
+                        [(ngModel)]="asset.owner" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.responsible" for="field_responsible">Responsible</label>
+                    <input type="text" class="form-control" name="responsible" id="field_responsible"
+                        [(ngModel)]="asset.responsible" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.quantity" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                        [(ngModel)]="asset.quantity" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.assetQualitativeValue" for="field_assetQualitativeValue">Asset Qualitative Value</label>
+                    <input type="number" class="form-control" name="assetQualitativeValue" id="field_assetQualitativeValue"
+                        [(ngModel)]="asset.assetQualitativeValue" min="0" jhiMin="0" max="5" jhiMax="5"/>
+                    <div [hidden]="!(editForm.controls.assetQualitativeValue?.dirty && editForm.controls.assetQualitativeValue?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.assetQualitativeValue?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.assetQualitativeValue?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 5 }">
+                            This field cannot be more than 5.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.assetQualitativeValue?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.assetQuantitativeValue" for="field_assetQuantitativeValue">Asset Quantitative Value</label>
+                    <input type="number" class="form-control" name="assetQuantitativeValue" id="field_assetQuantitativeValue"
+                        [(ngModel)]="asset.assetQuantitativeValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.potentialRisk" for="field_potentialRisk">Potential Risk</label>
+                    <input type="number" class="form-control" name="potentialRisk" id="field_potentialRisk"
+                        [(ngModel)]="asset.potentialRisk" min="0" jhiMin="0" max="5" jhiMax="5"/>
+                    <div [hidden]="!(editForm.controls.potentialRisk?.dirty && editForm.controls.potentialRisk?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.potentialRisk?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.potentialRisk?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 5 }">
+                            This field cannot be more than 5.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.potentialRisk?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.estimatedRisk" for="field_estimatedRisk">Estimated Risk</label>
+                    <input type="number" class="form-control" name="estimatedRisk" id="field_estimatedRisk"
+                        [(ngModel)]="asset.estimatedRisk" min="0" jhiMin="0" max="5" jhiMax="5"/>
+                    <div [hidden]="!(editForm.controls.estimatedRisk?.dirty && editForm.controls.estimatedRisk?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.estimatedRisk?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.estimatedRisk?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 5 }">
+                            This field cannot be more than 5.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.estimatedRisk?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div [hidden]="!(editForm.controls.assetSubType?.dirty && editForm.controls.assetSubType?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.assetSubType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div [hidden]="!(editForm.controls.existingSafeguards?.dirty && editForm.controls.existingSafeguards?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.existingSafeguards?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div [hidden]="!(editForm.controls.threat?.dirty && editForm.controls.threat?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.threat?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.asset.company" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" name="company" [(ngModel)]="asset.company"  required>
+                        <option *ngIf="!editForm.value.company" [ngValue]="null" selected></option>
+                        <option [ngValue]="companyOption.id === asset.company?.id ? asset.company : companyOption" *ngFor="let companyOption of companies; trackBy: trackCompanyById">{{companyOption.companyName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.company?.dirty && editForm.controls.company?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.company?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

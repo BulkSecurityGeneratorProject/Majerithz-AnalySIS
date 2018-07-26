@@ -1,0 +1,48 @@
+{
+    "name": "Analysis",
+    "fields": [
+        {
+            "fieldName": "identifier",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "analysisCreationDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "analysisLastEdit",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "step",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "analysis",
+            "relationshipName": "asset",
+            "otherEntityName": "asset",
+            "otherEntityField": "assetName",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "otherEntityField": "companyName"
+        }
+    ],
+    "changelogDate": "20180726112258",
+    "entityTableName": "analysis",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

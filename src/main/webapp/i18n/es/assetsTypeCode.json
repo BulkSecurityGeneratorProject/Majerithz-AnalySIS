@@ -1,0 +1,19 @@
+{
+    "majerithzAnalySisApp": {
+        "AssetsTypeCode" : {
+            "null": "",
+            "ESSENTIAL": "ESSENTIAL",
+            "ARCH": "ARCH",
+            "D": "D",
+            "K": "K",
+            "S": "S",
+            "SW": "SW",
+            "HW": "HW",
+            "COM": "COM",
+            "MEDIA": "MEDIA",
+            "AUX": "AUX",
+            "L": "L",
+            "P": "P"
+        }
+    }
+}

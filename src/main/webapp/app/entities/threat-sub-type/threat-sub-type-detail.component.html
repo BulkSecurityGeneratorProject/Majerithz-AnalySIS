@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="threatSubType">
+            <h2><span jhiTranslate="majerithzAnalySisApp.threatSubType.detail.title">Threat Sub Type</span> {{threatSubType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatTypeCode">Threat Type Code</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'majerithzAnalySisApp.ThreatsTypeCode.' + threatSubType.threatTypeCode}}">{{threatSubType.threatTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatSubTypeCode">Threat Sub Type Code</span></dt>
+                <dd>
+                    <span>{{threatSubType.threatSubTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatSubTypeName">Threat Sub Type Name</span></dt>
+                <dd>
+                    <span>{{threatSubType.threatSubTypeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatSubTypeDescription">Threat Sub Type Description</span></dt>
+                <dd>
+                    <span>{{threatSubType.threatSubTypeDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatType">Threat Type</span></dt>
+                <dd>
+                    <div *ngIf="threatSubType.threatType">
+                        <a [routerLink]="['/threat-type', threatSubType.threatType?.id, 'view']">{{threatSubType.threatType?.threatTypeName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/threat-sub-type', threatSubType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

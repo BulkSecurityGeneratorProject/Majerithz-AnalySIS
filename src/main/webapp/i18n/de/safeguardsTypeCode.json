@@ -1,0 +1,23 @@
+{
+    "majerithzAnalySisApp": {
+        "SafeguardsTypeCode" : {
+            "null": "",
+            "H": "H",
+            "D": "D",
+            "K": "K",
+            "S": "S",
+            "SW": "SW",
+            "HW": "HW",
+            "COM": "COM",
+            "IP": "IP",
+            "MP": "MP",
+            "AUX": "AUX",
+            "L": "L",
+            "PS": "PS",
+            "G": "G",
+            "BC": "BC",
+            "E": "E",
+            "NEW": "NEW"
+        }
+    }
+}

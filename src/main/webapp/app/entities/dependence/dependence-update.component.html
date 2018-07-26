@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-dependence-heading" jhiTranslate="majerithzAnalySisApp.dependence.home.createOrEditLabel">Create or edit a Dependence</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!dependence.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="dependence.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.dependence.degree" for="field_degree">Degree</label>
+                    <input type="number" class="form-control" name="degree" id="field_degree"
+                        [(ngModel)]="dependence.degree" min="0" jhiMin="0" max="100" jhiMax="100"/>
+                    <div [hidden]="!(editForm.controls.degree?.dirty && editForm.controls.degree?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.degree?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.degree?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.degree?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.dependence.reason" for="field_reason">Reason</label>
+                    <input type="text" class="form-control" name="reason" id="field_reason"
+                        [(ngModel)]="dependence.reason" maxlength="5000"/>
+                    <div [hidden]="!(editForm.controls.reason?.dirty && editForm.controls.reason?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.reason?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5000 }">
+                        This field cannot be longer than 5000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.dependence.asset" for="field_asset">Asset</label>
+                    <select class="form-control" id="field_asset" name="asset" [(ngModel)]="dependence.asset"  required>
+                        <option *ngIf="!editForm.value.asset" [ngValue]="null" selected></option>
+                        <option [ngValue]="assetOption.id === dependence.asset?.id ? dependence.asset : assetOption" *ngFor="let assetOption of assets; trackBy: trackAssetById">{{assetOption.assetName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.asset?.dirty && editForm.controls.asset?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.asset?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

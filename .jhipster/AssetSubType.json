@@ -1,0 +1,53 @@
+{
+    "name": "AssetSubType",
+    "fields": [
+        {
+            "fieldName": "assetTypeCode",
+            "fieldType": "AssetsTypeCode",
+            "fieldValues": "ESSENTIAL,ARCH,D,K,S,SW,HW,COM,MEDIA,AUX,L,P"
+        },
+        {
+            "fieldName": "assetSubTypeCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "assetSubTypeName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "assetSubTypeDescription",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "asset",
+            "otherEntityName": "asset",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "assetType",
+            "otherEntityName": "assetType",
+            "otherEntityField": "assetTypeName"
+        }
+    ],
+    "changelogDate": "20180726112301",
+    "entityTableName": "asset_sub_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

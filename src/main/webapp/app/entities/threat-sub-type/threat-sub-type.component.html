@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="majerithzAnalySisApp.threatSubType.home.title">Threat Sub Types</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-threat-sub-type" [routerLink]="['/threat-sub-type/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="majerithzAnalySisApp.threatSubType.home.createLabel">
+            Create new Threat Sub Type
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="threatSubTypes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatTypeCode">Threat Type Code</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatSubTypeCode">Threat Sub Type Code</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatSubTypeName">Threat Sub Type Name</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatSubTypeDescription">Threat Sub Type Description</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.threatSubType.threatType">Threat Type</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let threatSubType of threatSubTypes ;trackBy: trackId">
+                <td><a [routerLink]="['/threat-sub-type', threatSubType.id, 'view' ]">{{threatSubType.id}}</a></td>
+                <td jhiTranslate="{{'majerithzAnalySisApp.ThreatsTypeCode.' + threatSubType.threatTypeCode}}">{{threatSubType.threatTypeCode}}</td>
+                <td>{{threatSubType.threatSubTypeCode}}</td>
+                <td>{{threatSubType.threatSubTypeName}}</td>
+                <td>{{threatSubType.threatSubTypeDescription}}</td>
+                <td>
+                    <div *ngIf="threatSubType.threatType">
+                        <a [routerLink]="['../threat-type', threatSubType.threatType?.id, 'view' ]" >{{threatSubType.threatType?.threatTypeName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/threat-sub-type', threatSubType.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/threat-sub-type', threatSubType.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'threat-sub-type/'+ threatSubType.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

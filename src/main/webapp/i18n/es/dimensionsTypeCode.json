@@ -1,0 +1,12 @@
+{
+    "majerithzAnalySisApp": {
+        "DimensionsTypeCode" : {
+            "null": "",
+            "D": "D",
+            "I": "I",
+            "C": "C",
+            "A": "A",
+            "T": "T"
+        }
+    }
+}

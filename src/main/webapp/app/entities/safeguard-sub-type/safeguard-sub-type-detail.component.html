@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="safeguardSubType">
+            <h2><span jhiTranslate="majerithzAnalySisApp.safeguardSubType.detail.title">Safeguard Sub Type</span> {{safeguardSubType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardSubType.safeguardsTypeCode">Safeguards Type Code</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'majerithzAnalySisApp.SafeguardsTypeCode.' + safeguardSubType.safeguardsTypeCode}}">{{safeguardSubType.safeguardsTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardSubType.codeSafeguardSubType">Code Safeguard Sub Type</span></dt>
+                <dd>
+                    <span>{{safeguardSubType.codeSafeguardSubType}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardSubType.safeguardSubTypeName">Safeguard Sub Type Name</span></dt>
+                <dd>
+                    <span>{{safeguardSubType.safeguardSubTypeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardSubType.safeguardSubTypeDescription">Safeguard Sub Type Description</span></dt>
+                <dd>
+                    <span>{{safeguardSubType.safeguardSubTypeDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardSubType.safeguardType">Safeguard Type</span></dt>
+                <dd>
+                    <div *ngIf="safeguardSubType.safeguardType">
+                        <a [routerLink]="['/safeguard-type', safeguardSubType.safeguardType?.id, 'view']">{{safeguardSubType.safeguardType?.safeguardTypeName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/safeguard-sub-type', safeguardSubType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

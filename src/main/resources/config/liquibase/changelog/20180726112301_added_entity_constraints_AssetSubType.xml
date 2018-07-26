@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AssetSubType.
+    -->
+    <changeSet id="20180726112301-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="asset_id"
+                                 baseTableName="asset_sub_type"
+                                 constraintName="fk_asset_sub_type_asset_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="asset"/>
+
+        <addForeignKeyConstraint baseColumnNames="asset_type_id"
+                                 baseTableName="asset_sub_type"
+                                 constraintName="fk_asset_sub_type_asset_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="asset_type"/>
+
+    </changeSet>
+</databaseChangeLog>

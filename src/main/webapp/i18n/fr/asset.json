@@ -1,0 +1,41 @@
+
+{
+    "majerithzAnalySisApp": {
+        "asset" : {
+            "home": {
+                "title": "Assets",
+                "createLabel": "Créer un nouveau Asset",
+                "createOrEditLabel": "Créer ou éditer un Asset"
+            },
+            "created": "Un nouveau Asset a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Asset avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Asset avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Asset {{ id }} ?"
+            },
+            "detail": {
+                "title": "Asset"
+            },
+            "assetTypeCode": "Asset Type Code",
+            "assetName": "Asset Name",
+            "descriptionAsset": "Description Asset",
+            "identifier": "Identifier",
+            "assetLocation": "Asset Location",
+            "owner": "Owner",
+            "responsible": "Responsible",
+            "quantity": "Quantity",
+            "assetQualitativeValue": "Asset Qualitative Value",
+            "assetQuantitativeValue": "Asset Quantitative Value",
+            "potentialRisk": "Potential Risk",
+            "estimatedRisk": "Estimated Risk",
+            "assetSubType": "Asset Sub Type",
+            "dimension": "Dimension",
+            "existingSafeguards": "Existing Safeguards",
+            "threat": "Threat",
+            "dependence": "Dependence",
+            "safeguardsPackage": "Safeguards Package",
+            "company": "Company",
+            "analysis": "Analysis"
+        }
+    }
+}

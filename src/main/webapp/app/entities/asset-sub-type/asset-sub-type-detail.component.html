@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="assetSubType">
+            <h2><span jhiTranslate="majerithzAnalySisApp.assetSubType.detail.title">Asset Sub Type</span> {{assetSubType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetTypeCode">Asset Type Code</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'majerithzAnalySisApp.AssetsTypeCode.' + assetSubType.assetTypeCode}}">{{assetSubType.assetTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeCode">Asset Sub Type Code</span></dt>
+                <dd>
+                    <span>{{assetSubType.assetSubTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeName">Asset Sub Type Name</span></dt>
+                <dd>
+                    <span>{{assetSubType.assetSubTypeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeDescription">Asset Sub Type Description</span></dt>
+                <dd>
+                    <span>{{assetSubType.assetSubTypeDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.assetSubType.asset">Asset</span></dt>
+                <dd>
+                    <div *ngIf="assetSubType.asset">
+                        <a [routerLink]="['/asset', assetSubType.asset?.id, 'view']">{{assetSubType.asset?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetType">Asset Type</span></dt>
+                <dd>
+                    <div *ngIf="assetSubType.assetType">
+                        <a [routerLink]="['/asset-type', assetSubType.assetType?.id, 'view']">{{assetSubType.assetType?.assetTypeName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/asset-sub-type', assetSubType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+
+{
+    "majerithzAnalySisApp": {
+        "company" : {
+            "home": {
+                "title": "Companies",
+                "createLabel": "Company erstellen",
+                "createOrEditLabel": "Company erstellen oder bearbeiten"
+            },
+            "created": "Company erstellt mit ID {{ param }}",
+            "updated": "Company aktualisiert mit ID {{ param }}",
+            "deleted": "Company gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Company {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Company"
+            },
+            "companyName": "Company Name",
+            "companyIdentifier": "Company Identifier",
+            "creationDate": "Creation Date",
+            "sector": "Sector",
+            "assumedRisk": "Assumed Risk",
+            "location": "Location",
+            "employee": "Employee",
+            "analysis": "Analysis",
+            "asset": "Asset"
+        }
+    }
+}

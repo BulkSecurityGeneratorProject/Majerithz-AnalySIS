@@ -1,0 +1,43 @@
+{
+    "name": "AssetType",
+    "fields": [
+        {
+            "fieldName": "assetTypeCode",
+            "fieldType": "AssetsTypeCode",
+            "fieldValues": "ESSENTIAL,ARCH,D,K,S,SW,HW,COM,MEDIA,AUX,L,P"
+        },
+        {
+            "fieldName": "assetTypeName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "assetTypeDescription",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "assetSubType",
+            "otherEntityName": "assetSubType",
+            "otherEntityRelationshipName": "assetType"
+        }
+    ],
+    "changelogDate": "20180726112300",
+    "entityTableName": "asset_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

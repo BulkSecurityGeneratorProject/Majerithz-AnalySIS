@@ -1,0 +1,46 @@
+{
+    "name": "SafeguardSubType",
+    "fields": [
+        {
+            "fieldName": "safeguardsTypeCode",
+            "fieldType": "SafeguardsTypeCode",
+            "fieldValues": "H,D,K,S,SW,HW,COM,IP,MP,AUX,L,PS,G,BC,E,NEW"
+        },
+        {
+            "fieldName": "codeSafeguardSubType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "safeguardSubTypeName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "safeguardSubTypeDescription",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "safeguardType",
+            "otherEntityName": "safeguardType",
+            "otherEntityField": "safeguardTypeName"
+        }
+    ],
+    "changelogDate": "20180726112308",
+    "entityTableName": "safeguard_sub_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

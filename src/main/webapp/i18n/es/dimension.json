@@ -1,0 +1,25 @@
+
+{
+    "majerithzAnalySisApp": {
+        "dimension" : {
+            "home": {
+                "title": "Dimensions",
+                "createLabel": "Crear nuevo Dimension",
+                "createOrEditLabel": "Crear o editar Dimension"
+            },
+            "created": "Un nuevo Dimension ha sido creado con el identificador {{ param }}",
+            "updated": "Un Dimension ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Dimension ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Dimension {{ id }}?"
+            },
+            "detail": {
+                "title": "Dimension"
+            },
+            "dimensionTypeCode": "Dimension Type Code",
+            "dimensionDimension": "Dimension Dimension",
+            "dimensionDescription": "Dimension Description",
+            "asset": "Asset"
+        }
+    }
+}

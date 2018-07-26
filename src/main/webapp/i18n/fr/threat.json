@@ -1,0 +1,29 @@
+
+{
+    "majerithzAnalySisApp": {
+        "threat" : {
+            "home": {
+                "title": "Threats",
+                "createLabel": "Créer un nouveau Threat",
+                "createOrEditLabel": "Créer ou éditer un Threat"
+            },
+            "created": "Un nouveau Threat a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Threat avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Threat avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Threat {{ id }} ?"
+            },
+            "detail": {
+                "title": "Threat"
+            },
+            "threatTypeCode": "Threat Type Code",
+            "threatName": "Threat Name",
+            "threatCommentary": "Threat Commentary",
+            "assetDegradation": "Asset Degradation",
+            "theoreticalLikelihood": "Theoretical Likelihood",
+            "potentialImpact": "Potential Impact",
+            "threatSubType": "Threat Sub Type",
+            "asset": "Asset"
+        }
+    }
+}

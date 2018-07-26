@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="majerithzAnalySisApp.safeguard.home.title">Safeguards</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-safeguard" [routerLink]="['/safeguard/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="majerithzAnalySisApp.safeguard.home.createLabel">
+            Create new Safeguard
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="safeguards">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.safeguard.safeguardsTypeCode">Safeguards Type Code</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.safeguard.safeguardName">Safeguard Name</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.safeguard.safeguardCommentary">Safeguard Commentary</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.safeguard.effectivenessAgainstDegradation">Effectiveness Against Degradation</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.safeguard.effectivenessAgainstLikelihood">Effectiveness Against Likelihood</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.safeguard.safeguardSubType">Safeguard Sub Type</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let safeguard of safeguards ;trackBy: trackId">
+                <td><a [routerLink]="['/safeguard', safeguard.id, 'view' ]">{{safeguard.id}}</a></td>
+                <td jhiTranslate="{{'majerithzAnalySisApp.SafeguardsTypeCode.' + safeguard.safeguardsTypeCode}}">{{safeguard.safeguardsTypeCode}}</td>
+                <td>{{safeguard.safeguardName}}</td>
+                <td>{{safeguard.safeguardCommentary}}</td>
+                <td>{{safeguard.effectivenessAgainstDegradation}}</td>
+                <td>{{safeguard.effectivenessAgainstLikelihood}}</td>
+                <td>
+                    <div *ngIf="safeguard.safeguardSubType">
+                        <a [routerLink]="['../safeguard-sub-type', safeguard.safeguardSubType?.id, 'view' ]" >{{safeguard.safeguardSubType?.safeguardSubTypeName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/safeguard', safeguard.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/safeguard', safeguard.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'safeguard/'+ safeguard.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

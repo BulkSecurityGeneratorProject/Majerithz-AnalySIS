@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="threat">
+            <h2><span jhiTranslate="majerithzAnalySisApp.threat.detail.title">Threat</span> {{threat.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.threat.threatTypeCode">Threat Type Code</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'majerithzAnalySisApp.ThreatsTypeCode.' + threat.threatTypeCode}}">{{threat.threatTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threat.threatName">Threat Name</span></dt>
+                <dd>
+                    <span>{{threat.threatName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threat.threatCommentary">Threat Commentary</span></dt>
+                <dd>
+                    <span>{{threat.threatCommentary}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threat.assetDegradation">Asset Degradation</span></dt>
+                <dd>
+                    <span>{{threat.assetDegradation}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threat.theoreticalLikelihood">Theoretical Likelihood</span></dt>
+                <dd>
+                    <span>{{threat.theoreticalLikelihood}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threat.potentialImpact">Potential Impact</span></dt>
+                <dd>
+                    <span>{{threat.potentialImpact}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threat.threatSubType">Threat Sub Type</span></dt>
+                <dd>
+                    <div *ngIf="threat.threatSubType">
+                        <a [routerLink]="['/threat-sub-type', threat.threatSubType?.id, 'view']">{{threat.threatSubType?.threatSubTypeName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.threat.asset">Asset</span></dt>
+                <dd>
+                    <div *ngIf="threat.asset">
+                        <a [routerLink]="['/asset', threat.asset?.id, 'view']">{{threat.asset?.assetName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/threat', threat.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-analysis-heading" jhiTranslate="majerithzAnalySisApp.analysis.home.createOrEditLabel">Create or edit a Analysis</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!analysis.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="analysis.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.analysis.identifier" for="field_identifier">Identifier</label>
+                    <input type="text" class="form-control" name="identifier" id="field_identifier"
+                        [(ngModel)]="analysis.identifier" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.analysis.analysisCreationDate" for="field_analysisCreationDate">Analysis Creation Date</label>
+                    <div class="d-flex">
+                        <input id="field_analysisCreationDate" type="datetime-local" class="form-control" name="analysisCreationDate" [(ngModel)]="analysisCreationDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.analysis.analysisLastEdit" for="field_analysisLastEdit">Analysis Last Edit</label>
+                    <div class="d-flex">
+                        <input id="field_analysisLastEdit" type="datetime-local" class="form-control" name="analysisLastEdit" [(ngModel)]="analysisLastEdit"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.analysis.step" for="field_step">Step</label>
+                    <input type="text" class="form-control" name="step" id="field_step"
+                        [(ngModel)]="analysis.step" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="majerithzAnalySisApp.analysis.asset" for="field_asset">Asset</label>
+                    <select class="form-control" id="field_asset" multiple name="asset" [(ngModel)]="analysis.assets" required>
+                        <option [ngValue]="getSelected(analysis.assets, assetOption)" *ngFor="let assetOption of assets; trackBy: trackAssetById">{{assetOption.assetName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.asset?.dirty && editForm.controls.asset?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.asset?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.analysis.company" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" name="company" [(ngModel)]="analysis.company"  required>
+                        <option *ngIf="!editForm.value.company" [ngValue]="null" selected></option>
+                        <option [ngValue]="companyOption.id === analysis.company?.id ? analysis.company : companyOption" *ngFor="let companyOption of companies; trackBy: trackCompanyById">{{companyOption.companyName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.company?.dirty && editForm.controls.company?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.company?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

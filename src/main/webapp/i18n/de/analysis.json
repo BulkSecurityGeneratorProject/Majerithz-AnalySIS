@@ -1,0 +1,27 @@
+
+{
+    "majerithzAnalySisApp": {
+        "analysis" : {
+            "home": {
+                "title": "Analyses",
+                "createLabel": "Analysis erstellen",
+                "createOrEditLabel": "Analysis erstellen oder bearbeiten"
+            },
+            "created": "Analysis erstellt mit ID {{ param }}",
+            "updated": "Analysis aktualisiert mit ID {{ param }}",
+            "deleted": "Analysis gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Analysis {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Analysis"
+            },
+            "identifier": "Identifier",
+            "analysisCreationDate": "Analysis Creation Date",
+            "analysisLastEdit": "Analysis Last Edit",
+            "step": "Step",
+            "asset": "Asset",
+            "company": "Company"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+
+{
+    "majerithzAnalySisApp": {
+        "safeguard" : {
+            "home": {
+                "title": "Safeguards",
+                "createLabel": "Safeguard erstellen",
+                "createOrEditLabel": "Safeguard erstellen oder bearbeiten"
+            },
+            "created": "Safeguard erstellt mit ID {{ param }}",
+            "updated": "Safeguard aktualisiert mit ID {{ param }}",
+            "deleted": "Safeguard gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Safeguard {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Safeguard"
+            },
+            "safeguardsTypeCode": "Safeguards Type Code",
+            "safeguardName": "Safeguard Name",
+            "safeguardCommentary": "Safeguard Commentary",
+            "effectivenessAgainstDegradation": "Effectiveness Against Degradation",
+            "effectivenessAgainstLikelihood": "Effectiveness Against Likelihood",
+            "safeguardSubType": "Safeguard Sub Type",
+            "safeguardsPackage": "Safeguards Package",
+            "existingSafeguards": "Existing Safeguards"
+        }
+    }
+}

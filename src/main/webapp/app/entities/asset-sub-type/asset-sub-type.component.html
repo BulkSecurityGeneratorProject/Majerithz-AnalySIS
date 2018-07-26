@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="majerithzAnalySisApp.assetSubType.home.title">Asset Sub Types</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-asset-sub-type" [routerLink]="['/asset-sub-type/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="majerithzAnalySisApp.assetSubType.home.createLabel">
+            Create new Asset Sub Type
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="assetSubTypes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetTypeCode">Asset Type Code</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeCode">Asset Sub Type Code</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeName">Asset Sub Type Name</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetSubTypeDescription">Asset Sub Type Description</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.assetSubType.asset">Asset</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.assetSubType.assetType">Asset Type</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let assetSubType of assetSubTypes ;trackBy: trackId">
+                <td><a [routerLink]="['/asset-sub-type', assetSubType.id, 'view' ]">{{assetSubType.id}}</a></td>
+                <td jhiTranslate="{{'majerithzAnalySisApp.AssetsTypeCode.' + assetSubType.assetTypeCode}}">{{assetSubType.assetTypeCode}}</td>
+                <td>{{assetSubType.assetSubTypeCode}}</td>
+                <td>{{assetSubType.assetSubTypeName}}</td>
+                <td>{{assetSubType.assetSubTypeDescription}}</td>
+                <td>
+                    <div *ngIf="assetSubType.asset">
+                        <a [routerLink]="['../asset', assetSubType.asset?.id, 'view' ]" >{{assetSubType.asset?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="assetSubType.assetType">
+                        <a [routerLink]="['../asset-type', assetSubType.assetType?.id, 'view' ]" >{{assetSubType.assetType?.assetTypeName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/asset-sub-type', assetSubType.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/asset-sub-type', assetSubType.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'asset-sub-type/'+ assetSubType.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

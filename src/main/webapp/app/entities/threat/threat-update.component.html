@@ -1,0 +1,132 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-threat-heading" jhiTranslate="majerithzAnalySisApp.threat.home.createOrEditLabel">Create or edit a Threat</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!threat.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="threat.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.threat.threatTypeCode" for="field_threatTypeCode">Threat Type Code</label>
+                    <select class="form-control" name="threatTypeCode" [(ngModel)]="threat.threatTypeCode" id="field_threatTypeCode" >
+                        <option value="N">{{'majerithzAnalySisApp.ThreatsTypeCode.N' | translate}}</option>
+                        <option value="I">{{'majerithzAnalySisApp.ThreatsTypeCode.I' | translate}}</option>
+                        <option value="E">{{'majerithzAnalySisApp.ThreatsTypeCode.E' | translate}}</option>
+                        <option value="A">{{'majerithzAnalySisApp.ThreatsTypeCode.A' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.threat.threatName" for="field_threatName">Threat Name</label>
+                    <input type="text" class="form-control" name="threatName" id="field_threatName"
+                        [(ngModel)]="threat.threatName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.threat.threatCommentary" for="field_threatCommentary">Threat Commentary</label>
+                    <input type="text" class="form-control" name="threatCommentary" id="field_threatCommentary"
+                        [(ngModel)]="threat.threatCommentary" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.threatCommentary?.dirty && editForm.controls.threatCommentary?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.threatCommentary?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.threat.assetDegradation" for="field_assetDegradation">Asset Degradation</label>
+                    <input type="number" class="form-control" name="assetDegradation" id="field_assetDegradation"
+                        [(ngModel)]="threat.assetDegradation" min="0" jhiMin="0" max="100" jhiMax="100"/>
+                    <div [hidden]="!(editForm.controls.assetDegradation?.dirty && editForm.controls.assetDegradation?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.assetDegradation?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.assetDegradation?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.assetDegradation?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.threat.theoreticalLikelihood" for="field_theoreticalLikelihood">Theoretical Likelihood</label>
+                    <input type="number" class="form-control" name="theoreticalLikelihood" id="field_theoreticalLikelihood"
+                        [(ngModel)]="threat.theoreticalLikelihood" min="0" jhiMin="0" max="100" jhiMax="100"/>
+                    <div [hidden]="!(editForm.controls.theoreticalLikelihood?.dirty && editForm.controls.theoreticalLikelihood?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.theoreticalLikelihood?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.theoreticalLikelihood?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.theoreticalLikelihood?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.threat.potentialImpact" for="field_potentialImpact">Potential Impact</label>
+                    <input type="number" class="form-control" name="potentialImpact" id="field_potentialImpact"
+                        [(ngModel)]="threat.potentialImpact" min="0" jhiMin="0" max="5" jhiMax="5"/>
+                    <div [hidden]="!(editForm.controls.potentialImpact?.dirty && editForm.controls.potentialImpact?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.potentialImpact?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.potentialImpact?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 5 }">
+                            This field cannot be more than 5.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.potentialImpact?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.threat.threatSubType" for="field_threatSubType">Threat Sub Type</label>
+                    <select class="form-control" id="field_threatSubType" name="threatSubType" [(ngModel)]="threat.threatSubType" required>
+                        <option *ngIf="!editForm.value.threatSubType" [ngValue]="null" selected></option>
+                        <option [ngValue]="threatSubTypeOption.id === threat.threatSubType?.id ? threat.threatSubType : threatSubTypeOption" *ngFor="let threatSubTypeOption of threatsubtypes; trackBy: trackThreatSubTypeById">{{threatSubTypeOption.threatSubTypeName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.threatSubType?.dirty && editForm.controls.threatSubType?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.threatSubType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.threat.asset" for="field_asset">Asset</label>
+                    <select class="form-control" id="field_asset" name="asset" [(ngModel)]="threat.asset"  required>
+                        <option *ngIf="!editForm.value.asset" [ngValue]="null" selected></option>
+                        <option [ngValue]="assetOption.id === threat.asset?.id ? threat.asset : assetOption" *ngFor="let assetOption of assets; trackBy: trackAssetById">{{assetOption.assetName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.asset?.dirty && editForm.controls.asset?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.asset?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

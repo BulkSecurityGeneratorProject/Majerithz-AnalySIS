@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="majerithzAnalySisApp.existingSafeguards.home.title">Existing Safeguards</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-existing-safeguards" [routerLink]="['/existing-safeguards/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="majerithzAnalySisApp.existingSafeguards.home.createLabel">
+            Create new Existing Safeguards
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="existingSafeguards">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.existingSafeguardsName">Existing Safeguards Name</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.existingSafeguardsCommentary">Existing Safeguards Commentary</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.effectivenessAgainstDegradation">Effectiveness Against Degradation</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.effectivenessAgainstLikelihood">Effectiveness Against Likelihood</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.asset">Asset</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.safeguard">Safeguard</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let existingSafeguards of existingSafeguards ;trackBy: trackId">
+                <td><a [routerLink]="['/existing-safeguards', existingSafeguards.id, 'view' ]">{{existingSafeguards.id}}</a></td>
+                <td>{{existingSafeguards.existingSafeguardsName}}</td>
+                <td>{{existingSafeguards.existingSafeguardsCommentary}}</td>
+                <td>{{existingSafeguards.effectivenessAgainstDegradation}}</td>
+                <td>{{existingSafeguards.effectivenessAgainstLikelihood}}</td>
+                <td>
+                    <div *ngIf="existingSafeguards.asset">
+                        <a [routerLink]="['../asset', existingSafeguards.asset?.id, 'view' ]" >{{existingSafeguards.asset?.assetName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="existingSafeguards.safeguard">
+                        <a [routerLink]="['../safeguard', existingSafeguards.safeguard?.id, 'view' ]" >{{existingSafeguards.safeguard?.safeguardName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/existing-safeguards', existingSafeguards.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/existing-safeguards', existingSafeguards.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'existing-safeguards/'+ existingSafeguards.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

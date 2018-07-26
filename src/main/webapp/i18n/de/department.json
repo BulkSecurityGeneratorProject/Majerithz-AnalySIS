@@ -1,0 +1,23 @@
+
+{
+    "majerithzAnalySisApp": {
+        "department" : {
+            "home": {
+                "title": "Departments",
+                "createLabel": "Department erstellen",
+                "createOrEditLabel": "Department erstellen oder bearbeiten"
+            },
+            "created": "Department erstellt mit ID {{ param }}",
+            "updated": "Department aktualisiert mit ID {{ param }}",
+            "deleted": "Department gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Department {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Department"
+            },
+            "departmentName": "Department Name",
+            "employee": "Employee"
+        }
+    }
+}

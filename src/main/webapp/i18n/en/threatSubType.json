@@ -1,0 +1,26 @@
+
+{
+    "majerithzAnalySisApp": {
+        "threatSubType" : {
+            "home": {
+                "title": "Threat Sub Types",
+                "createLabel": "Create a new Threat Sub Type",
+                "createOrEditLabel": "Create or edit a Threat Sub Type"
+            },
+            "created": "A new Threat Sub Type is created with identifier {{ param }}",
+            "updated": "A Threat Sub Type is updated with identifier {{ param }}",
+            "deleted": "A Threat Sub Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Threat Sub Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Threat Sub Type"
+            },
+            "threatTypeCode": "Threat Type Code",
+            "threatSubTypeCode": "Threat Sub Type Code",
+            "threatSubTypeName": "Threat Sub Type Name",
+            "threatSubTypeDescription": "Threat Sub Type Description",
+            "threatType": "Threat Type"
+        }
+    }
+}

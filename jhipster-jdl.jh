@@ -1,0 +1,196 @@
+DMIN=0 //Degree min valor
+DMAX=100 //Degree max valor
+QMIN=0 //Qualitative min valor
+QMAX=5 //Qualitative max valor
+STL=500 //Small text length
+MTL=100 //Medium text length
+LTL=5000 //Large text length
+
+enum AssetsTypeCode {
+	ESSENTIAL, ARCH, D, K, S, SW, HW, COM, MEDIA, AUX, L, P
+}
+enum ThreatsTypeCode {
+	N, I, E, A
+}
+enum SafeguardsTypeCode {
+	H, D, K, S, SW, HW, COM, IP, MP, AUX, L, PS, G, BC, E, NEW
+}
+enum DimensionsTypeCode {
+	D, I, C, A, T
+}
+
+entity Location {
+	locationDescription String,
+	country String,
+    streetAddress String required,
+	postalCode String required,
+	city String required,
+	stateProvince String,
+}
+
+entity Department {
+	departmentName String required
+}
+
+entity Employee {
+	firstName String required,
+	lastName String required,
+    dni String required,
+	email String required,
+	phoneNumber String,
+    birthday LocalDate,
+	hireDate LocalDate,
+    job String,
+    task String,
+}
+
+entity Company {
+	companyName String required,
+    companyIdentifier String required ,
+    creationDate LocalDate,
+    sector String,
+    assumedRisk Double,
+     
+}
+
+entity Analysis {
+	identifier String,
+	analysisCreationDate Instant,
+    analysisLastEdit Instant,
+    step String,
+    
+}
+
+entity Asset {
+	assetTypeCode AssetsTypeCode,
+	assetName String required,
+    descriptionAsset String maxlength(LTL),
+    identifier String required,
+    assetLocation String,
+	owner String,
+    responsible String,
+    quantity Integer,
+    assetQualitativeValue Double min(QMIN) max(QMAX),
+    assetQuantitativeValue Double,
+    potentialRisk Double min(QMIN) max(QMAX),
+    estimatedRisk Double min(QMIN) max(QMAX),
+}
+
+entity AssetType {
+	assetTypeCode AssetsTypeCode,
+    assetTypeName String required,
+    assetTypeDescription String maxlength(LTL),
+}
+
+entity AssetSubType {
+	assetTypeCode AssetsTypeCode,
+    assetSubTypeCode String,
+    assetSubTypeName String required,
+    assetSubTypeDescription String maxlength(LTL)
+}
+
+entity Dependence {
+	degree Integer min(DMIN) max(DMAX),
+    reason String maxlength(LTL)
+}
+
+
+entity Dimension {
+	
+	dimensionTypeCode DimensionsTypeCode,
+    dimensionDimension String,
+    dimensionDescription String maxlength(LTL),
+	
+}
+
+
+entity ThreatType {
+	threatTypeCode ThreatsTypeCode,
+    threatTypeName String required,
+    threatTypeDescription String maxlength(LTL)
+}
+
+entity ThreatSubType {
+	threatTypeCode ThreatsTypeCode,
+    threatSubTypeCode String,
+    threatSubTypeName String required,
+    threatSubTypeDescription String maxlength(LTL)
+}
+
+entity Threat {
+	threatTypeCode ThreatsTypeCode,
+	threatName String,
+    threatCommentary String maxlength(MTL), // Comentarios sobre la amenaza
+    assetDegradation Integer min(DMIN) max(DMAX), // Degradación generada en el activo
+    theoreticalLikelihood Integer min(DMIN) max(DMAX) // Probabilidad de ocurrecia teórica sin salvaguardas
+    potentialImpact Double min(QMIN) max(QMAX), // Impacto teórico sin salvaguardas
+}
+
+entity SafeguardType {
+	safeguardsTypeCode SafeguardsTypeCode,
+	safeguardTypeName String required,
+    safeguardTypeDescription String maxlength(LTL)
+}
+
+entity SafeguardSubType {
+	safeguardsTypeCode SafeguardsTypeCode,
+	codeSafeguardSubType String,
+	safeguardSubTypeName String required,
+    safeguardSubTypeDescription String maxlength(LTL)
+}
+entity ExistingSafeguards {
+	existingSafeguardsName String,
+	existingSafeguardsCommentary String maxlength(MTL)
+    effectivenessAgainstDegradation Integer min(DMIN) max(DMAX),
+    effectivenessAgainstLikelihood Integer min(DMIN) max(DMAX)
+	
+}
+entity Safeguard {
+	safeguardsTypeCode SafeguardsTypeCode,
+	safeguardName String,
+	safeguardCommentary String maxlength(LTL),
+    effectivenessAgainstDegradation Integer min(DMIN) max(DMAX),
+    effectivenessAgainstLikelihood Integer min(DMIN) max(DMAX)
+	
+}
+
+entity SafeguardsPackage {
+	safeguardsPackageName String,
+	safeguardsPackageCommentary String maxlength(MTL),
+	effectivenessAgainstDegradation Integer min(DMIN) max(DMAX),
+    effectivenessAgainstLikelihood Integer min(DMIN) max(DMAX)
+}
+
+
+relationship ManyToMany {
+	Department{Employee} to Employee{Department},
+    Analysis{Asset(assetName) required} to Asset{Analysis}
+    
+}
+
+relationship OneToMany {
+    Company{Location(locationDescription)} to Location{Company(companyName)},
+	Company{Employee(lastName) required} to Employee{Company(companyName) required},
+	Company{Analysis(identifier) required} to Analysis{Company(companyName) required},
+	Company{Asset(assetName) required} to Asset{Company(companyName) required},
+    Asset{AssetSubType(assetSubTypeName) required} to AssetSubType,
+    AssetType{AssetSubType(assetSubTypeName) required} to AssetSubType{AssetType(assetTypeName) required},
+	Asset{Dimension} to Dimension,
+    Asset{ExistingSafeguards(existingSafeguardsName) required} to ExistingSafeguards{Asset(assetName) required},
+    Asset{Threat(threatName) required} to Threat{Asset(assetName) required},
+    Asset{Dependence} to Dependence{Asset(assetName) required},
+    Asset{SafeguardsPackage(safeguardsPackageName)} to SafeguardsPackage{Asset(assetName)},
+    ThreatType{ThreatSubType(threatSubTypeName)} to ThreatSubType{ThreatType(threatTypeName)},
+    SafeguardType{SafeguardSubType(safeguardSubTypeName)} to SafeguardSubType{SafeguardType(safeguardTypeName)},
+    Safeguard{SafeguardsPackage(safeguardsPackageName)} to SafeguardsPackage{Safeguard(safeguardName)},
+    Safeguard{ExistingSafeguards(existingSafeguardsName)} to ExistingSafeguards{Safeguard(safeguardName)}   
+    
+}
+
+relationship OneToOne {
+	Threat{ThreatSubType(threatSubTypeName) required} to ThreatSubType,
+    Safeguard{SafeguardSubType(safeguardSubTypeName) required} to SafeguardSubType
+        
+}
+
+dto * with mapstruct

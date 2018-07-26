@@ -1,0 +1,74 @@
+{
+    "name": "Safeguard",
+    "fields": [
+        {
+            "fieldName": "safeguardsTypeCode",
+            "fieldType": "SafeguardsTypeCode",
+            "fieldValues": "H,D,K,S,SW,HW,COM,IP,MP,AUX,L,PS,G,BC,E,NEW"
+        },
+        {
+            "fieldName": "safeguardName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "safeguardCommentary",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        },
+        {
+            "fieldName": "effectivenessAgainstDegradation",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 100
+        },
+        {
+            "fieldName": "effectivenessAgainstLikelihood",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "safeguardSubType",
+            "otherEntityName": "safeguardSubType",
+            "otherEntityField": "safeguardSubTypeName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "safeguard"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "safeguardsPackage",
+            "otherEntityName": "safeguardsPackage",
+            "otherEntityRelationshipName": "safeguard"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "existingSafeguards",
+            "otherEntityName": "existingSafeguards",
+            "otherEntityRelationshipName": "safeguard"
+        }
+    ],
+    "changelogDate": "20180726112310",
+    "entityTableName": "safeguard",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,79 @@
+{
+    "name": "Threat",
+    "fields": [
+        {
+            "fieldName": "threatTypeCode",
+            "fieldType": "ThreatsTypeCode",
+            "fieldValues": "N,I,E,A"
+        },
+        {
+            "fieldName": "threatName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "threatCommentary",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "assetDegradation",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 100
+        },
+        {
+            "fieldName": "theoreticalLikelihood",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 100
+        },
+        {
+            "fieldName": "potentialImpact",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 5
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "threatSubType",
+            "otherEntityName": "threatSubType",
+            "otherEntityField": "threatSubTypeName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "threat"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "asset",
+            "otherEntityName": "asset",
+            "otherEntityField": "assetName"
+        }
+    ],
+    "changelogDate": "20180726112306",
+    "entityTableName": "threat",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

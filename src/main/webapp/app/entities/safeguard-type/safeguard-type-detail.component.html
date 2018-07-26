@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="safeguardType">
+            <h2><span jhiTranslate="majerithzAnalySisApp.safeguardType.detail.title">Safeguard Type</span> {{safeguardType.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardType.safeguardsTypeCode">Safeguards Type Code</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'majerithzAnalySisApp.SafeguardsTypeCode.' + safeguardType.safeguardsTypeCode}}">{{safeguardType.safeguardsTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardType.safeguardTypeName">Safeguard Type Name</span></dt>
+                <dd>
+                    <span>{{safeguardType.safeguardTypeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardType.safeguardTypeDescription">Safeguard Type Description</span></dt>
+                <dd>
+                    <span>{{safeguardType.safeguardTypeDescription}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/safeguard-type', safeguardType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

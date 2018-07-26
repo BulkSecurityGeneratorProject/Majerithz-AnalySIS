@@ -1,0 +1,42 @@
+{
+    "name": "ThreatType",
+    "fields": [
+        {
+            "fieldName": "threatTypeCode",
+            "fieldType": "ThreatsTypeCode",
+            "fieldValues": "N,I,E,A"
+        },
+        {
+            "fieldName": "threatTypeName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "threatTypeDescription",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "threatSubType",
+            "otherEntityName": "threatSubType",
+            "otherEntityRelationshipName": "threatType"
+        }
+    ],
+    "changelogDate": "20180726112304",
+    "entityTableName": "threat_type",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

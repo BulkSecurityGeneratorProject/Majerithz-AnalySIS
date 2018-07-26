@@ -1,0 +1,27 @@
+
+{
+    "majerithzAnalySisApp": {
+        "assetSubType" : {
+            "home": {
+                "title": "Asset Sub Types",
+                "createLabel": "Create a new Asset Sub Type",
+                "createOrEditLabel": "Create or edit a Asset Sub Type"
+            },
+            "created": "A new Asset Sub Type is created with identifier {{ param }}",
+            "updated": "A Asset Sub Type is updated with identifier {{ param }}",
+            "deleted": "A Asset Sub Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Asset Sub Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Asset Sub Type"
+            },
+            "assetTypeCode": "Asset Type Code",
+            "assetSubTypeCode": "Asset Sub Type Code",
+            "assetSubTypeName": "Asset Sub Type Name",
+            "assetSubTypeDescription": "Asset Sub Type Description",
+            "asset": "Asset",
+            "assetType": "Asset Type"
+        }
+    }
+}

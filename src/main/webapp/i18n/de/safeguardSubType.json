@@ -1,0 +1,26 @@
+
+{
+    "majerithzAnalySisApp": {
+        "safeguardSubType" : {
+            "home": {
+                "title": "Safeguard Sub Types",
+                "createLabel": "Safeguard Sub Type erstellen",
+                "createOrEditLabel": "Safeguard Sub Type erstellen oder bearbeiten"
+            },
+            "created": "Safeguard Sub Type erstellt mit ID {{ param }}",
+            "updated": "Safeguard Sub Type aktualisiert mit ID {{ param }}",
+            "deleted": "Safeguard Sub Type gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Safeguard Sub Type {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Safeguard Sub Type"
+            },
+            "safeguardsTypeCode": "Safeguards Type Code",
+            "codeSafeguardSubType": "Code Safeguard Sub Type",
+            "safeguardSubTypeName": "Safeguard Sub Type Name",
+            "safeguardSubTypeDescription": "Safeguard Sub Type Description",
+            "safeguardType": "Safeguard Type"
+        }
+    }
+}

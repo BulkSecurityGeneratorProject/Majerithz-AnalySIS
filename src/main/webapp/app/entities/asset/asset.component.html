@@ -1,0 +1,82 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="majerithzAnalySisApp.asset.home.title">Assets</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-asset" [routerLink]="['/asset/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="majerithzAnalySisApp.asset.home.createLabel">
+            Create new Asset
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="assets">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.assetTypeCode">Asset Type Code</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.assetName">Asset Name</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.descriptionAsset">Description Asset</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.identifier">Identifier</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.assetLocation">Asset Location</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.owner">Owner</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.responsible">Responsible</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.quantity">Quantity</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.assetQualitativeValue">Asset Qualitative Value</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.assetQuantitativeValue">Asset Quantitative Value</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.potentialRisk">Potential Risk</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.estimatedRisk">Estimated Risk</span></th>
+            <th><span jhiTranslate="majerithzAnalySisApp.asset.company">Company</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let asset of assets ;trackBy: trackId">
+                <td><a [routerLink]="['/asset', asset.id, 'view' ]">{{asset.id}}</a></td>
+                <td jhiTranslate="{{'majerithzAnalySisApp.AssetsTypeCode.' + asset.assetTypeCode}}">{{asset.assetTypeCode}}</td>
+                <td>{{asset.assetName}}</td>
+                <td>{{asset.descriptionAsset}}</td>
+                <td>{{asset.identifier}}</td>
+                <td>{{asset.assetLocation}}</td>
+                <td>{{asset.owner}}</td>
+                <td>{{asset.responsible}}</td>
+                <td>{{asset.quantity}}</td>
+                <td>{{asset.assetQualitativeValue}}</td>
+                <td>{{asset.assetQuantitativeValue}}</td>
+                <td>{{asset.potentialRisk}}</td>
+                <td>{{asset.estimatedRisk}}</td>
+                <td>
+                    <div *ngIf="asset.company">
+                        <a [routerLink]="['../company', asset.company?.id, 'view' ]" >{{asset.company?.companyName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/asset', asset.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/asset', asset.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'asset/'+ asset.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

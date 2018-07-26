@@ -5,6 +5,38 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112254_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112255_added_entity_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112256_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112257_added_entity_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112258_added_entity_Analysis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112259_added_entity_Asset.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112300_added_entity_AssetType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112301_added_entity_AssetSubType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112302_added_entity_Dependence.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112303_added_entity_Dimension.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112304_added_entity_ThreatType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112305_added_entity_ThreatSubType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112306_added_entity_Threat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112307_added_entity_SafeguardType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112308_added_entity_SafeguardSubType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112309_added_entity_ExistingSafeguards.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112310_added_entity_Safeguard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112311_added_entity_SafeguardsPackage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180726112254_added_entity_constraints_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112255_added_entity_constraints_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112256_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112258_added_entity_constraints_Analysis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112259_added_entity_constraints_Asset.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112301_added_entity_constraints_AssetSubType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112302_added_entity_constraints_Dependence.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112303_added_entity_constraints_Dimension.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112305_added_entity_constraints_ThreatSubType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112306_added_entity_constraints_Threat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112308_added_entity_constraints_SafeguardSubType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112309_added_entity_constraints_ExistingSafeguards.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112310_added_entity_constraints_Safeguard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180726112311_added_entity_constraints_SafeguardsPackage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,25 @@
+
+{
+    "majerithzAnalySisApp": {
+        "threatType" : {
+            "home": {
+                "title": "ThreatTypes",
+                "createLabel": "Créer un nouveau Threat Type",
+                "createOrEditLabel": "Créer ou éditer un Threat Type"
+            },
+            "created": "Un nouveau Threat Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Threat Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Threat Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Threat Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Threat Type"
+            },
+            "threatTypeCode": "Threat Type Code",
+            "threatTypeName": "Threat Type Name",
+            "threatTypeDescription": "Threat Type Description",
+            "threatSubType": "Threat Sub Type"
+        }
+    }
+}

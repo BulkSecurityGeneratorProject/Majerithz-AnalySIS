@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employee">
+            <h2><span jhiTranslate="majerithzAnalySisApp.employee.detail.title">Employee</span> {{employee.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{employee.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{employee.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.dni">Dni</span></dt>
+                <dd>
+                    <span>{{employee.dni}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.email">Email</span></dt>
+                <dd>
+                    <span>{{employee.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{employee.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.birthday">Birthday</span></dt>
+                <dd>
+                    <span>{{employee.birthday}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.hireDate">Hire Date</span></dt>
+                <dd>
+                    <span>{{employee.hireDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.job">Job</span></dt>
+                <dd>
+                    <span>{{employee.job}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.task">Task</span></dt>
+                <dd>
+                    <span>{{employee.task}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.employee.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="employee.company">
+                        <a [routerLink]="['/company', employee.company?.id, 'view']">{{employee.company?.companyName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employee', employee.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

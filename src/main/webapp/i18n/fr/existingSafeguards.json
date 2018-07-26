@@ -1,0 +1,27 @@
+
+{
+    "majerithzAnalySisApp": {
+        "existingSafeguards" : {
+            "home": {
+                "title": "ExistingSafeguards",
+                "createLabel": "Créer un nouveau Existing Safeguards",
+                "createOrEditLabel": "Créer ou éditer un Existing Safeguards"
+            },
+            "created": "Un nouveau Existing Safeguards a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Existing Safeguards avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Existing Safeguards avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Existing Safeguards {{ id }} ?"
+            },
+            "detail": {
+                "title": "Existing Safeguards"
+            },
+            "existingSafeguardsName": "Existing Safeguards Name",
+            "existingSafeguardsCommentary": "Existing Safeguards Commentary",
+            "effectivenessAgainstDegradation": "Effectiveness Against Degradation",
+            "effectivenessAgainstLikelihood": "Effectiveness Against Likelihood",
+            "asset": "Asset",
+            "safeguard": "Safeguard"
+        }
+    }
+}

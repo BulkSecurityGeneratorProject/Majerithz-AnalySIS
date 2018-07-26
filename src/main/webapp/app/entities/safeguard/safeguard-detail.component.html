@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="safeguard">
+            <h2><span jhiTranslate="majerithzAnalySisApp.safeguard.detail.title">Safeguard</span> {{safeguard.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguard.safeguardsTypeCode">Safeguards Type Code</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'majerithzAnalySisApp.SafeguardsTypeCode.' + safeguard.safeguardsTypeCode}}">{{safeguard.safeguardsTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguard.safeguardName">Safeguard Name</span></dt>
+                <dd>
+                    <span>{{safeguard.safeguardName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguard.safeguardCommentary">Safeguard Commentary</span></dt>
+                <dd>
+                    <span>{{safeguard.safeguardCommentary}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguard.effectivenessAgainstDegradation">Effectiveness Against Degradation</span></dt>
+                <dd>
+                    <span>{{safeguard.effectivenessAgainstDegradation}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguard.effectivenessAgainstLikelihood">Effectiveness Against Likelihood</span></dt>
+                <dd>
+                    <span>{{safeguard.effectivenessAgainstLikelihood}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguard.safeguardSubType">Safeguard Sub Type</span></dt>
+                <dd>
+                    <div *ngIf="safeguard.safeguardSubType">
+                        <a [routerLink]="['/safeguard-sub-type', safeguard.safeguardSubType?.id, 'view']">{{safeguard.safeguardSubType?.safeguardSubTypeName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/safeguard', safeguard.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

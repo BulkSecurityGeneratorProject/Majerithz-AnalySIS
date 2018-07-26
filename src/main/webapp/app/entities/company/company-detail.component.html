@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="company">
+            <h2><span jhiTranslate="majerithzAnalySisApp.company.detail.title">Company</span> {{company.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.company.companyName">Company Name</span></dt>
+                <dd>
+                    <span>{{company.companyName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.company.companyIdentifier">Company Identifier</span></dt>
+                <dd>
+                    <span>{{company.companyIdentifier}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.company.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{company.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.company.sector">Sector</span></dt>
+                <dd>
+                    <span>{{company.sector}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.company.assumedRisk">Assumed Risk</span></dt>
+                <dd>
+                    <span>{{company.assumedRisk}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company', company.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

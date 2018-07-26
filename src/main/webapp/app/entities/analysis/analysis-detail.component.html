@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="analysis">
+            <h2><span jhiTranslate="majerithzAnalySisApp.analysis.detail.title">Analysis</span> {{analysis.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.analysis.identifier">Identifier</span></dt>
+                <dd>
+                    <span>{{analysis.identifier}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.analysis.analysisCreationDate">Analysis Creation Date</span></dt>
+                <dd>
+                    <span>{{analysis.analysisCreationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.analysis.analysisLastEdit">Analysis Last Edit</span></dt>
+                <dd>
+                    <span>{{analysis.analysisLastEdit}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.analysis.step">Step</span></dt>
+                <dd>
+                    <span>{{analysis.step}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.analysis.asset">Asset</span></dt>
+                <dd>
+                    <span *ngFor="let asset of analysis.assets; let last = last">
+                        <a [routerLink]="['/asset', asset?.id, 'view' ]">{{asset.assetName}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.analysis.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="analysis.company">
+                        <a [routerLink]="['/company', analysis.company?.id, 'view']">{{analysis.company?.companyName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/analysis', analysis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

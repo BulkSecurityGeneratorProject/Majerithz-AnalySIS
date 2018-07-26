@@ -1,0 +1,27 @@
+
+{
+    "majerithzAnalySisApp": {
+        "safeguardsPackage" : {
+            "home": {
+                "title": "Safeguards Packages",
+                "createLabel": "Safeguards Package erstellen",
+                "createOrEditLabel": "Safeguards Package erstellen oder bearbeiten"
+            },
+            "created": "Safeguards Package erstellt mit ID {{ param }}",
+            "updated": "Safeguards Package aktualisiert mit ID {{ param }}",
+            "deleted": "Safeguards Package gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Safeguards Package {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Safeguards Package"
+            },
+            "safeguardsPackageName": "Safeguards Package Name",
+            "safeguardsPackageCommentary": "Safeguards Package Commentary",
+            "effectivenessAgainstDegradation": "Effectiveness Against Degradation",
+            "effectivenessAgainstLikelihood": "Effectiveness Against Likelihood",
+            "asset": "Asset",
+            "safeguard": "Safeguard"
+        }
+    }
+}

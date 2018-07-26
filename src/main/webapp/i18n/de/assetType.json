@@ -1,0 +1,25 @@
+
+{
+    "majerithzAnalySisApp": {
+        "assetType" : {
+            "home": {
+                "title": "Asset Types",
+                "createLabel": "Asset Type erstellen",
+                "createOrEditLabel": "Asset Type erstellen oder bearbeiten"
+            },
+            "created": "Asset Type erstellt mit ID {{ param }}",
+            "updated": "Asset Type aktualisiert mit ID {{ param }}",
+            "deleted": "Asset Type gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Asset Type {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Asset Type"
+            },
+            "assetTypeCode": "Asset Type Code",
+            "assetTypeName": "Asset Type Name",
+            "assetTypeDescription": "Asset Type Description",
+            "assetSubType": "Asset Sub Type"
+        }
+    }
+}

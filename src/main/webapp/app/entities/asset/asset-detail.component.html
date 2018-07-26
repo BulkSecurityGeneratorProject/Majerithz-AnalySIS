@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="asset">
+            <h2><span jhiTranslate="majerithzAnalySisApp.asset.detail.title">Asset</span> {{asset.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.assetTypeCode">Asset Type Code</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'majerithzAnalySisApp.AssetsTypeCode.' + asset.assetTypeCode}}">{{asset.assetTypeCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.assetName">Asset Name</span></dt>
+                <dd>
+                    <span>{{asset.assetName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.descriptionAsset">Description Asset</span></dt>
+                <dd>
+                    <span>{{asset.descriptionAsset}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.identifier">Identifier</span></dt>
+                <dd>
+                    <span>{{asset.identifier}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.assetLocation">Asset Location</span></dt>
+                <dd>
+                    <span>{{asset.assetLocation}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.owner">Owner</span></dt>
+                <dd>
+                    <span>{{asset.owner}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.responsible">Responsible</span></dt>
+                <dd>
+                    <span>{{asset.responsible}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{asset.quantity}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.assetQualitativeValue">Asset Qualitative Value</span></dt>
+                <dd>
+                    <span>{{asset.assetQualitativeValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.assetQuantitativeValue">Asset Quantitative Value</span></dt>
+                <dd>
+                    <span>{{asset.assetQuantitativeValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.potentialRisk">Potential Risk</span></dt>
+                <dd>
+                    <span>{{asset.potentialRisk}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.estimatedRisk">Estimated Risk</span></dt>
+                <dd>
+                    <span>{{asset.estimatedRisk}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.asset.company">Company</span></dt>
+                <dd>
+                    <div *ngIf="asset.company">
+                        <a [routerLink]="['/company', asset.company?.id, 'view']">{{asset.company?.companyName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/asset', asset.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

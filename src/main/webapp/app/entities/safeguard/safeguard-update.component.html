@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-safeguard-heading" jhiTranslate="majerithzAnalySisApp.safeguard.home.createOrEditLabel">Create or edit a Safeguard</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!safeguard.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="safeguard.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.safeguard.safeguardsTypeCode" for="field_safeguardsTypeCode">Safeguards Type Code</label>
+                    <select class="form-control" name="safeguardsTypeCode" [(ngModel)]="safeguard.safeguardsTypeCode" id="field_safeguardsTypeCode" >
+                        <option value="H">{{'majerithzAnalySisApp.SafeguardsTypeCode.H' | translate}}</option>
+                        <option value="D">{{'majerithzAnalySisApp.SafeguardsTypeCode.D' | translate}}</option>
+                        <option value="K">{{'majerithzAnalySisApp.SafeguardsTypeCode.K' | translate}}</option>
+                        <option value="S">{{'majerithzAnalySisApp.SafeguardsTypeCode.S' | translate}}</option>
+                        <option value="SW">{{'majerithzAnalySisApp.SafeguardsTypeCode.SW' | translate}}</option>
+                        <option value="HW">{{'majerithzAnalySisApp.SafeguardsTypeCode.HW' | translate}}</option>
+                        <option value="COM">{{'majerithzAnalySisApp.SafeguardsTypeCode.COM' | translate}}</option>
+                        <option value="IP">{{'majerithzAnalySisApp.SafeguardsTypeCode.IP' | translate}}</option>
+                        <option value="MP">{{'majerithzAnalySisApp.SafeguardsTypeCode.MP' | translate}}</option>
+                        <option value="AUX">{{'majerithzAnalySisApp.SafeguardsTypeCode.AUX' | translate}}</option>
+                        <option value="L">{{'majerithzAnalySisApp.SafeguardsTypeCode.L' | translate}}</option>
+                        <option value="PS">{{'majerithzAnalySisApp.SafeguardsTypeCode.PS' | translate}}</option>
+                        <option value="G">{{'majerithzAnalySisApp.SafeguardsTypeCode.G' | translate}}</option>
+                        <option value="BC">{{'majerithzAnalySisApp.SafeguardsTypeCode.BC' | translate}}</option>
+                        <option value="E">{{'majerithzAnalySisApp.SafeguardsTypeCode.E' | translate}}</option>
+                        <option value="NEW">{{'majerithzAnalySisApp.SafeguardsTypeCode.NEW' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.safeguard.safeguardName" for="field_safeguardName">Safeguard Name</label>
+                    <input type="text" class="form-control" name="safeguardName" id="field_safeguardName"
+                        [(ngModel)]="safeguard.safeguardName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.safeguard.safeguardCommentary" for="field_safeguardCommentary">Safeguard Commentary</label>
+                    <input type="text" class="form-control" name="safeguardCommentary" id="field_safeguardCommentary"
+                        [(ngModel)]="safeguard.safeguardCommentary" maxlength="5000"/>
+                    <div [hidden]="!(editForm.controls.safeguardCommentary?.dirty && editForm.controls.safeguardCommentary?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.safeguardCommentary?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 5000 }">
+                        This field cannot be longer than 5000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.safeguard.effectivenessAgainstDegradation" for="field_effectivenessAgainstDegradation">Effectiveness Against Degradation</label>
+                    <input type="number" class="form-control" name="effectivenessAgainstDegradation" id="field_effectivenessAgainstDegradation"
+                        [(ngModel)]="safeguard.effectivenessAgainstDegradation" min="0" jhiMin="0" max="100" jhiMax="100"/>
+                    <div [hidden]="!(editForm.controls.effectivenessAgainstDegradation?.dirty && editForm.controls.effectivenessAgainstDegradation?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.effectivenessAgainstDegradation?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.effectivenessAgainstDegradation?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.effectivenessAgainstDegradation?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.safeguard.effectivenessAgainstLikelihood" for="field_effectivenessAgainstLikelihood">Effectiveness Against Likelihood</label>
+                    <input type="number" class="form-control" name="effectivenessAgainstLikelihood" id="field_effectivenessAgainstLikelihood"
+                        [(ngModel)]="safeguard.effectivenessAgainstLikelihood" min="0" jhiMin="0" max="100" jhiMax="100"/>
+                    <div [hidden]="!(editForm.controls.effectivenessAgainstLikelihood?.dirty && editForm.controls.effectivenessAgainstLikelihood?.invalid)">
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.effectivenessAgainstLikelihood?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.effectivenessAgainstLikelihood?.errors?.max" jhiTranslate="entity.validation.max" translateValues="{ max: 100 }">
+                            This field cannot be more than 100.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.effectivenessAgainstLikelihood?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="majerithzAnalySisApp.safeguard.safeguardSubType" for="field_safeguardSubType">Safeguard Sub Type</label>
+                    <select class="form-control" id="field_safeguardSubType" name="safeguardSubType" [(ngModel)]="safeguard.safeguardSubType" required>
+                        <option *ngIf="!editForm.value.safeguardSubType" [ngValue]="null" selected></option>
+                        <option [ngValue]="safeguardSubTypeOption.id === safeguard.safeguardSubType?.id ? safeguard.safeguardSubType : safeguardSubTypeOption" *ngFor="let safeguardSubTypeOption of safeguardsubtypes; trackBy: trackSafeguardSubTypeById">{{safeguardSubTypeOption.safeguardSubTypeName}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.safeguardSubType?.dirty && editForm.controls.safeguardSubType?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.safeguardSubType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

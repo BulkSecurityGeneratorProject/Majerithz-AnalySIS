@@ -1,0 +1,24 @@
+
+{
+    "majerithzAnalySisApp": {
+        "dependence" : {
+            "home": {
+                "title": "Dependences",
+                "createLabel": "Crear nuevo Dependence",
+                "createOrEditLabel": "Crear o editar Dependence"
+            },
+            "created": "Un nuevo Dependence ha sido creado con el identificador {{ param }}",
+            "updated": "Un Dependence ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Dependence ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Dependence {{ id }}?"
+            },
+            "detail": {
+                "title": "Dependence"
+            },
+            "degree": "Degree",
+            "reason": "Reason",
+            "asset": "Asset"
+        }
+    }
+}

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="safeguardsPackage">
+            <h2><span jhiTranslate="majerithzAnalySisApp.safeguardsPackage.detail.title">Safeguards Package</span> {{safeguardsPackage.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardsPackage.safeguardsPackageName">Safeguards Package Name</span></dt>
+                <dd>
+                    <span>{{safeguardsPackage.safeguardsPackageName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardsPackage.safeguardsPackageCommentary">Safeguards Package Commentary</span></dt>
+                <dd>
+                    <span>{{safeguardsPackage.safeguardsPackageCommentary}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardsPackage.effectivenessAgainstDegradation">Effectiveness Against Degradation</span></dt>
+                <dd>
+                    <span>{{safeguardsPackage.effectivenessAgainstDegradation}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardsPackage.effectivenessAgainstLikelihood">Effectiveness Against Likelihood</span></dt>
+                <dd>
+                    <span>{{safeguardsPackage.effectivenessAgainstLikelihood}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardsPackage.asset">Asset</span></dt>
+                <dd>
+                    <div *ngIf="safeguardsPackage.asset">
+                        <a [routerLink]="['/asset', safeguardsPackage.asset?.id, 'view']">{{safeguardsPackage.asset?.assetName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.safeguardsPackage.safeguard">Safeguard</span></dt>
+                <dd>
+                    <div *ngIf="safeguardsPackage.safeguard">
+                        <a [routerLink]="['/safeguard', safeguardsPackage.safeguard?.id, 'view']">{{safeguardsPackage.safeguard?.safeguardName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/safeguards-package', safeguardsPackage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="existingSafeguards">
+            <h2><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.detail.title">Existing Safeguards</span> {{existingSafeguards.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.existingSafeguardsName">Existing Safeguards Name</span></dt>
+                <dd>
+                    <span>{{existingSafeguards.existingSafeguardsName}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.existingSafeguardsCommentary">Existing Safeguards Commentary</span></dt>
+                <dd>
+                    <span>{{existingSafeguards.existingSafeguardsCommentary}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.effectivenessAgainstDegradation">Effectiveness Against Degradation</span></dt>
+                <dd>
+                    <span>{{existingSafeguards.effectivenessAgainstDegradation}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.effectivenessAgainstLikelihood">Effectiveness Against Likelihood</span></dt>
+                <dd>
+                    <span>{{existingSafeguards.effectivenessAgainstLikelihood}}</span>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.asset">Asset</span></dt>
+                <dd>
+                    <div *ngIf="existingSafeguards.asset">
+                        <a [routerLink]="['/asset', existingSafeguards.asset?.id, 'view']">{{existingSafeguards.asset?.assetName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="majerithzAnalySisApp.existingSafeguards.safeguard">Safeguard</span></dt>
+                <dd>
+                    <div *ngIf="existingSafeguards.safeguard">
+                        <a [routerLink]="['/safeguard', existingSafeguards.safeguard?.id, 'view']">{{existingSafeguards.safeguard?.safeguardName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/existing-safeguards', existingSafeguards.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

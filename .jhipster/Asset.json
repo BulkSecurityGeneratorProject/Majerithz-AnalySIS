@@ -1,0 +1,146 @@
+{
+    "name": "Asset",
+    "fields": [
+        {
+            "fieldName": "assetTypeCode",
+            "fieldType": "AssetsTypeCode",
+            "fieldValues": "ESSENTIAL,ARCH,D,K,S,SW,HW,COM,MEDIA,AUX,L,P"
+        },
+        {
+            "fieldName": "assetName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descriptionAsset",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        },
+        {
+            "fieldName": "identifier",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "assetLocation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "owner",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "responsible",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "assetQualitativeValue",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 5
+        },
+        {
+            "fieldName": "assetQuantitativeValue",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "potentialRisk",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 5
+        },
+        {
+            "fieldName": "estimatedRisk",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 5
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "assetSubType",
+            "otherEntityName": "assetSubType",
+            "otherEntityRelationshipName": "asset"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dimension",
+            "otherEntityName": "dimension",
+            "otherEntityRelationshipName": "asset"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "existingSafeguards",
+            "otherEntityName": "existingSafeguards",
+            "otherEntityRelationshipName": "asset"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "threat",
+            "otherEntityName": "threat",
+            "otherEntityRelationshipName": "asset"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dependence",
+            "otherEntityName": "dependence",
+            "otherEntityRelationshipName": "asset"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "safeguardsPackage",
+            "otherEntityName": "safeguardsPackage",
+            "otherEntityRelationshipName": "asset"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "otherEntityField": "companyName"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "analysis",
+            "otherEntityName": "analysis",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "asset"
+        }
+    ],
+    "changelogDate": "20180726112259",
+    "entityTableName": "asset",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
